@@ -2,7 +2,7 @@
 
  
 
-##Introduction
+## Introduction
  This is a page for Assignment which was part of our Ad-Hoc Wireless Sensor Networks
 
 
@@ -33,10 +33,10 @@
 ### Steps Of solving the Assignment.
 
 **Note:** 
-* _After Windows 7 , Wireless Network in ad-hoc mode is not allowed.Only infrastructure mode is allowed.
-* _For the following Assignment we used Ubuntu 16.04 LTS_
-* _We used bash and Python 3 for our scripts._ 
-* _These scripts should be run with sudo permission._
+* _After Windows 7 , Wireless Network in ad-hoc mode is not allowed.Only infrastructure mode is allowed_.
+* _For the following Assignment we used Ubuntu 16.04 LTS_.
+* _We used bash and Python 3 for our scripts_. 
+* _These scripts should be run with sudo permission_.
 
 The first step is creating a Ad-Hoc Network .
 
@@ -51,11 +51,11 @@ This can be Done using two methods.
 In the Drop-down menu you have to select WIFI
 
  
-![GitHub Logo](/images/1.png)
+![GitHub Logo](docs/images/1.png)
 
 Give SSId Mode should be Ad-Hoc , In device Select your Wifi
 
-![GitHub Logo](/images/2.png)
+![GitHub Logo](docs/images/2.png)
 
 In the page below  you have to specify what authentication method you want to use . Here we have used WEP 128-bit passphrase/WEP 40/128 bit passkey(hex or ASCII).
 
@@ -63,24 +63,24 @@ In the page below  you have to specify what authentication method you want to us
 
 _Using any WPA/WPA2PSK will make the wifi inaccessible by others_
 
-_network-Manager uses iwconfig ,so wpa-psk is not allowed in this method
+_network-Manager uses iwconfig ,so wpa-psk is not allowed in this method_
 
-![GitHub Logo](/images/3.png)
+![GitHub Logo](docs/images/3.png)
 
 when Ad-Hoc network is created normally the initiator will have mode set to  `share to other computer` 
 while others connecting to this Ad-Hoc network will have dhcp
 
-![GitHub Logo](/images/4.png)
+![GitHub Logo](docs/images/4.png)
  
 
 You can manually set your ip if you want . its the same way in both in case of creation or joining
 
-![GitHub Logo](/images/5.png)
+![GitHub Logo](docs/images/5.png)
 
 
 After creation we have to join the network , Press the network adapter button and select `connect to hidden network` . in that drop-down menu you will find the name of the network you created or which you want to join 
 
- ![GitHub Logo](/images/6.png)
+ ![GitHub Logo](docs/images/6.png)
 
 
 
@@ -139,7 +139,7 @@ sudo ip link set $name down
 #$name should be replaced by wireless Adaptor name
 
 ``` 
-[here](https://github.com/naveenholla/naveenholla.github.io.git)Next step is creating a network in Ad-Hoc Mode.
+Next step is creating a network in Ad-Hoc Mode.
 
 We can only create Ad-Hoc network with WEP in this method .but if you want WPA-PSK then you should use 
 
@@ -186,7 +186,7 @@ here is part of documentation (wpasupplicant-0.6.9/wpa_supplicant/wpa_supplicant
 # both), and psk must also be set.
 ```
 
-##using iwconfig to create Ad-Hoc network.
+## using iwconfig to create Ad-Hoc network.
 
 ```bash
 sudo iwconfig $name mode ad-hoc essid $wifiname key 1234567890
@@ -216,7 +216,8 @@ sudo ifconfig  $name $ip/8
 Now we have successfully established a Ad-Hoc Network.
 
 To verify whether the network is created you can use this command  .
-```
+
+```bash
 iwconfig $name
 
 
@@ -235,12 +236,15 @@ As we know that broadcast domain of all the ips in the network is
 when all nodes are connected they will start pinging the **broadcast address** simultaneously  .This process is is piped with **Tcpdump** so that we can capture this .This capture is piped through **Grep** where we will specify the ip pattern so that only ips will be extracted.
 
 ```bash
+
 ping -b -c 5 10.255.255.255|sudo tcpdump -i $name -n -c 5 ip |grep -o '[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}'
+
 ```
 
 **Second Approach**
 
 In this approach we tried to get the neighbour information using 
+
 **`arping`** 
 
 through which we can send **Gracious arp** which updates the neighbours ARP-table.
