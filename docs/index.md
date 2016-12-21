@@ -51,11 +51,11 @@ This can be Done using two methods.
 In the Drop-down menu you have to select WIFI
 
  
-![GitHub Logo](docs/images/1.png)
+![GitHub Logo](/images/1.png)
 
 Give SSId Mode should be Ad-Hoc , In device Select your Wifi
 
-![GitHub Logo](docs/images/2.png)
+![GitHub Logo](/images/2.png)
 
 In the page below  you have to specify what authentication method you want to use . Here we have used WEP 128-bit passphrase/WEP 40/128 bit passkey(hex or ASCII).
 
@@ -65,22 +65,22 @@ _Using any WPA/WPA2PSK will make the wifi inaccessible by others_
 
 _network-Manager uses iwconfig ,so wpa-psk is not allowed in this method_
 
-![GitHub Logo](docs/images/3.png)
+![GitHub Logo](/images/3.png)
 
 when Ad-Hoc network is created normally the initiator will have mode set to  `share to other computer` 
 while others connecting to this Ad-Hoc network will have dhcp
 
-![GitHub Logo](docs/images/4.png)
+![GitHub Logo](/images/4.png)
  
 
 You can manually set your ip if you want . its the same way in both in case of creation or joining
 
-![GitHub Logo](docs/images/5.png)
+![GitHub Logo](/images/5.png)
 
 
 After creation we have to join the network , Press the network adapter button and select `connect to hidden network` . in that drop-down menu you will find the name of the network you created or which you want to join 
 
- ![GitHub Logo](docs/images/6.png)
+ ![GitHub Logo](/images/6.png)
 
 
 
